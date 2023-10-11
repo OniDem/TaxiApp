@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TaxiApp.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <Frame
+                WidthRequest="300"
+                Padding="5"
+                Margin="0, 10, 0, 0"
+                BackgroundColor="White">
+                <StackLayout>
+                    <Label
+                        Text="Welcome to .NET Multi-platform App UI"
+                        FontSize="18"
+                        HorizontalOptions="Center"
+                        TextColor="Gray"
+                        HorizontalTextAlignment="Center"/>
+                    <Entry Placeholder="Введите номер телефона"
+                           TextColor="#222"
+                           Margin="0, 5, 0, 0"/>
+                    <Entry Placeholder="Введите код"
+                           TextColor="#222"
+                            Margin="0, 5, 0, 0"/>
+                    
+                    <Button 
+                        Text="Отправить"
+                        Margin="0, 5, 0, 0"
+                        TextColor="#222"
+                        Background="Green"/>
+                </StackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
