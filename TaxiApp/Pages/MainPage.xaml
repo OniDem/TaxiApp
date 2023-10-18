@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:control="clr-namespace:Bertuzzi.MAUI.MaskedEntry;assembly=Bertuzzi.MAUI.MaskedEntry"
-             x:Class="TaxiApp.MainPage"
+             x:Class="TaxiApp.Pages.MainPage"
              Background="Gray">
 
     <ScrollView >
@@ -43,11 +43,23 @@
                     
                     <Button
                         Clicked="Send_Clicked"
-                        Text="Отправить"
+                        x:Name="SendButton"
+                        Text="Отправить код"
                         Margin="0, 5, 0, 0"
                         TextColor="#222"
                         Background="Green"
-                        CornerRadius="25"/>
+                        CornerRadius="25"
+                        />
+                    <Button
+                        Clicked="AuthButton_Clicked"
+                        x:Name="AuthButton"
+                        Text="Авторизоваться"
+                        Margin="0, 5, 0, 0"
+                        TextColor="#222"
+                        Background="Green"
+                        CornerRadius="25"
+                        IsVisible="false"
+                        />
                 </StackLayout>
             </Frame>
 

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TaxiApp.Pages.OrderPage"
+             Title="OrderPage">
+    <ScrollView >
+        <VerticalStackLayout
+    Spacing="25"
+    Padding="30,0"
+    VerticalOptions="Center">
+
+        <Frame
+        WidthRequest="300"
+        Padding="15"
+        Margin="0, 10, 0, 0"
+        BackgroundColor="White">
+                <StackLayout>
+                    <Label
+                Text="Регистрация"
+                FontSize="30"
+                HorizontalOptions="Center"
+                TextColor="#222"
+                HorizontalTextAlignment="Center"/>
+
+                    <Entry 
+                    x:Name="FIOEntry"
+                    Placeholder="Введите ФИО"
+                    IsVisible="True"
+                    TextColor="#222"
+                    Margin="0, 5, 0, 5"/>
+                    <Label
+                    Text="Пол"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    TextColor="#222"
+                    HorizontalTextAlignment="Center"/>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <RadioButton x:Name="Male" Content="Мужской" Margin="5"/>
+                        <RadioButton x:Name="Female" Content="Женский" Margin="5"/>
+                    </StackLayout>
+
+                    <Button
+               
+                Text="Отправить"
+                Margin="0, 5, 0, 0"
+                TextColor="#222"
+                Background="Green"
+                CornerRadius="25"/>
+                </StackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

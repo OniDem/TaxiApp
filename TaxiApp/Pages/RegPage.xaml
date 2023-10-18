@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:control="clr-namespace:Bertuzzi.MAUI.MaskedEntry;assembly=Bertuzzi.MAUI.MaskedEntry"
-             x:Class="TaxiApp.Pages.NewPage1"
+             x:Class="TaxiApp.Pages.RegPage"
              Title="NewPage1">
     <ScrollView >
         <VerticalStackLayout
@@ -18,25 +18,28 @@
                 <StackLayout>
                     <Label
                     Text="Регистрация"
-                    FontSize="18"
+                    FontSize="30"
                     HorizontalOptions="Center"
                     TextColor="#222"
                     HorizontalTextAlignment="Center"/>
 
                     <Entry 
                         x:Name="FIOEntry"
-                        Placeholder="Введите код"
-                        IsVisible="False"
+                        Placeholder="Введите ФИО"
+                        IsVisible="True"
                         TextColor="#222"
-                        Margin="0, 5, 0, 0"/>
+                        Margin="0, 5, 0, 5"/>
                     <Label
                         Text="Пол"
-                        FontSize="14"
+                        FontSize="20"
                         HorizontalOptions="Center"
                         TextColor="#222"
                         HorizontalTextAlignment="Center"/>
-                    <StackLayout 
                     
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <RadioButton x:Name="Male" Content="Мужской" Margin="5"/>
+                        <RadioButton x:Name="Female" Content="Женский" Margin="5"/>
+                    </StackLayout>
                     
                     <control:MaskedEntry
                             x:Name="PhoneEntry"
@@ -51,7 +54,7 @@
                     
 
                     <Button
-                    Clicked="Send_Clicked"
+                   
                     Text="Отправить"
                     Margin="0, 5, 0, 0"
                     TextColor="#222"

@@ -1,8 +1,8 @@
 namespace TaxiApp.Pages;
 
-public partial class NewPage1 : ContentPage
+public partial class RegPage : ContentPage
 {
-	public NewPage1()
+	public RegPage()
 	{
 		InitializeComponent();
 	}

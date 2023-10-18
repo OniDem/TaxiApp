@@ -3,12 +3,21 @@
     x:Class="TaxiApp.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:TaxiApp"
+    xmlns:local="clr-namespace:TaxiApp.Pages"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
+    <TabBar>
+        <Tab 
+            Title="Авторизация">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
+        <Tab 
+            Title="Регистрация">
+            <ShellContent ContentTemplate="{DataTemplate local:RegPage}" />
+        </Tab>
+        <Tab
+            Title="Новый заказ">
+            <ShellContent ContentTemplate="{DataTemplate local:OrderPage}" />
+        </Tab>
+    </TabBar>
 </Shell>
