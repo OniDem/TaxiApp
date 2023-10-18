@@ -32,14 +32,15 @@
                                 FontSize="15"
                                 FontAttributes="Bold"
                                 Margin="0, 5, 0, 0"
-                                Keyboard="Telephone">
+                                Keyboard="Numeric">
                     </control:MaskedEntry>
                     <Entry 
                            x:Name="CodeEntry"
                            Placeholder="Введите код"
                            IsVisible="False"
                            TextColor="#222"
-                            Margin="0, 5, 0, 0"/>
+                           Keyboard="Numeric"
+                           Margin="0, 5, 0, 0"/>
                     
                     <Button
                         Clicked="Send_Clicked"

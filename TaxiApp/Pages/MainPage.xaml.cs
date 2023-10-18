@@ -1,5 +1,4 @@
-﻿using System.Security.AccessControl;
-using TaxiApp.Const;
+﻿using TaxiApp.Const;
 using TaxiApp.Entity.Users;
 
 namespace TaxiApp.Pages
@@ -58,6 +57,7 @@ namespace TaxiApp.Pages
 
         };
 
+        UserSessionInfoItemDatabase db = new();
 
         private string _phoneEntry { get; set; }
 
@@ -66,6 +66,17 @@ namespace TaxiApp.Pages
         public MainPage()
         {
             InitializeComponent();
+            PhoneEntry.TextChanged += (s, e) =>
+            {
+                if (e.NewTextValue.Length >= PhoneEntry.Mask.Length)
+                {
+                    PhoneEntry.CursorPosition = PhoneEntry.Mask.Length;
+                }
+                else
+                {
+                    PhoneEntry.CursorPosition = e.NewTextValue.Length;
+                }
+            };
         }
         private bool is_validPhoneNumber()
         {
@@ -91,25 +102,35 @@ namespace TaxiApp.Pages
 
         private async void AuthButton_Clicked(object sender, EventArgs e)
         {
-            while (true)
+            bool auth = false;
+            foreach (UserEntity user in users)
             {
-                foreach (UserEntity user in users)
+                if (user.Phone == _phoneEntry)
                 {
-                    if (user.Phone == _phoneEntry)
+                    if (_code == CodeEntry.Text)
                     {
-                        if (_code == CodeEntry.Text)
+                        await Navigation.PushAsync(new OrderPage());
+                        auth = true;
+                        UserSessionEntity sessionEntity = new()
                         {
-                            await Navigation.PushAsync(new OrderPage());
-                            break;
-                        }
-                        else
-                            await DisplayAlert("Ошибка ввода", "Неверный код!", "OK");
+                            Id = user.Id,
+                            FIO = user.FIO,
+                            Gender = user.Gender,
+                            Phone = user.Phone,
+                            Role = user.Role,
+                            Rating = user.Rating
+                        };
+                        await db.SaveItemAsync(sessionEntity);
                         break;
                     }
+                    else
+                        await DisplayAlert("Ошибка ввода", "Неверный код!", "OK");
                     break;
                 }
-                await DisplayAlert("Ошибка ввода", "Пользователя с таким номером не существует!", "OK");
+                break;
             }
+            if (auth == false)
+                await DisplayAlert("Ошибка ввода", "Пользователя с таким номером не существует!", "OK");
         }
     }
 }

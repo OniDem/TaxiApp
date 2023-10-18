@@ -16,11 +16,18 @@
         BackgroundColor="White">
                 <StackLayout>
                     <Label
-                Text="Регистрация"
-                FontSize="30"
-                HorizontalOptions="Center"
-                TextColor="#222"
-                HorizontalTextAlignment="Center"/>
+                    Text="Новый заказ"
+                    FontSize="30"
+                    HorizontalOptions="Center"
+                    TextColor="#222"
+                    HorizontalTextAlignment="Center"/>
+
+                    <Entry 
+                    x:Name="IDEntry"
+                    Placeholder="Введите ФИО"
+                    IsVisible="True"
+                    TextColor="#222"
+                    Margin="0, 5, 0, 5"/>
 
                     <Entry 
                     x:Name="FIOEntry"
@@ -28,25 +35,36 @@
                     IsVisible="True"
                     TextColor="#222"
                     Margin="0, 5, 0, 5"/>
-                    <Label
-                    Text="Пол"
-                    FontSize="20"
-                    HorizontalOptions="Center"
+
+                    <Entry 
+                    x:Name="GenderEntry"
+                    Placeholder="Введите ФИО"
+                    IsVisible="True"
                     TextColor="#222"
-                    HorizontalTextAlignment="Center"/>
+                    Margin="0, 5, 0, 5"/>
 
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                        <RadioButton x:Name="Male" Content="Мужской" Margin="5"/>
-                        <RadioButton x:Name="Female" Content="Женский" Margin="5"/>
-                    </StackLayout>
 
-                    <Button
-               
-                Text="Отправить"
-                Margin="0, 5, 0, 0"
-                TextColor="#222"
-                Background="Green"
-                CornerRadius="25"/>
+                    <Entry 
+                    x:Name="PhoneEntry"
+                    Placeholder="Введите ФИО"
+                    IsVisible="True"
+                    TextColor="#222"
+                    Margin="0, 5, 0, 5"/>
+
+                    <Entry 
+                    x:Name="RoleEntry"
+                    Placeholder="Введите ФИО"
+                    IsVisible="True"
+                    TextColor="#222"
+                    Margin="0, 5, 0, 5"/>
+
+                    <Entry 
+                    x:Name="RatingEntry"
+                    Placeholder="Введите ФИО"
+                    IsVisible="True"
+                    TextColor="#222"
+                    Margin="0, 5, 0, 5"/>
+
                 </StackLayout>
             </Frame>
 
