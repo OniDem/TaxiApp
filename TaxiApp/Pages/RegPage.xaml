@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:control="clr-namespace:Bertuzzi.MAUI.MaskedEntry;assembly=Bertuzzi.MAUI.MaskedEntry"
+             x:Class="TaxiApp.Pages.NewPage1"
+             Title="NewPage1">
+    <ScrollView >
+        <VerticalStackLayout
+        Spacing="25"
+        Padding="30,0"
+        VerticalOptions="Center">
+
+            <Frame
+            WidthRequest="300"
+            Padding="15"
+            Margin="0, 10, 0, 0"
+            BackgroundColor="White">
+                <StackLayout>
+                    <Label
+                    Text="Регистрация"
+                    FontSize="18"
+                    HorizontalOptions="Center"
+                    TextColor="#222"
+                    HorizontalTextAlignment="Center"/>
+
+                    <Entry 
+                        x:Name="FIOEntry"
+                        Placeholder="Введите код"
+                        IsVisible="False"
+                        TextColor="#222"
+                        Margin="0, 5, 0, 0"/>
+                    <Label
+                        Text="Пол"
+                        FontSize="14"
+                        HorizontalOptions="Center"
+                        TextColor="#222"
+                        HorizontalTextAlignment="Center"/>
+                    <StackLayout 
+                    
+                    
+                    <control:MaskedEntry
+                            x:Name="PhoneEntry"
+                            Mask="+7 (XXX) XXX-XX-XX"
+                            TextColor="#75646C"
+                            BackgroundColor="#f6f6f6"
+                            FontSize="15"
+                            FontAttributes="Bold"
+                            Margin="0, 5, 0, 0"
+                            Keyboard="Telephone">
+                    </control:MaskedEntry>
+                    
+
+                    <Button
+                    Clicked="Send_Clicked"
+                    Text="Отправить"
+                    Margin="0, 5, 0, 0"
+                    TextColor="#222"
+                    Background="Green"
+                    CornerRadius="25"/>
+                </StackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

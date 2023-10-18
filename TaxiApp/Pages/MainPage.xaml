@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:control="clr-namespace:Bertuzzi.MAUI.MaskedEntry;assembly=Bertuzzi.MAUI.MaskedEntry"
              x:Class="TaxiApp.MainPage"
              Background="Gray">
 
@@ -22,13 +23,17 @@
                         HorizontalOptions="Center"
                         TextColor="#222"
                         HorizontalTextAlignment="Center"/>
-                    
-                    <Entry 
-                           x:Name="PhoneEntry"
-                           Keyboard="Telephone"
-                           Placeholder="Введите номер телефона"
-                           TextColor="#222"
-                           Margin="0, 5, 0, 0"/>
+
+                    <control:MaskedEntry
+                                x:Name="PhoneEntry"
+                                Mask="+7 (XXX) XXX-XX-XX"
+                                TextColor="#75646C"
+                                BackgroundColor="#f6f6f6"
+                                FontSize="15"
+                                FontAttributes="Bold"
+                                Margin="0, 5, 0, 0"
+                                Keyboard="Telephone">
+                    </control:MaskedEntry>
                     <Entry 
                            x:Name="CodeEntry"
                            Placeholder="Введите код"

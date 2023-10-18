@@ -1,14 +1,25 @@
 ﻿
+using TaxiApp.Const;
+using TaxiApp.Entity.Users;
+
 namespace TaxiApp
 {
     public partial class MainPage : ContentPage
     {
+        private List<UserEntity> users = new();
         private string _phoneEntry { get; set; }
 
         public MainPage()
         {
             InitializeComponent();
-            PhoneEntry.Text = "";
+            users.Add(new UserEntity { 
+                Id = 1, //
+                FIO = "Иванов Иван Иванович",
+                Gender= GenderEnum.MALE,
+                Phone = "+7 (981) 111-11-11",
+                Role=RoleEnum.CLIENT, //
+                Rating = 3.14F //
+            });
         }
         private bool is_validPhoneNumber()
         {
