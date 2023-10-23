@@ -21,10 +21,16 @@ namespace TaxiApp
             var result = await Database.CreateTableAsync<UserSessionEntity>();
         }
 
-        public async Task<TodoItem> GetItemAsync(int id)
+        public async Task<UserSessionEntity> GetItemAsync(int id)
         {
             await Init();
-            return await Database.Table<TodoItem>().Where(i => i.Id == id).FirstOrDefaultAsync();
+            return await Database.Table<UserSessionEntity>().Where(i => i.Id == id).FirstOrDefaultAsync();
+        }
+
+        public async Task<List<UserSessionEntity>> GetItemsAsync()
+        {
+            await Init();
+            return await Database.Table<UserSessionEntity>().ToListAsync();
         }
 
         public async Task<int> SaveItemAsync(UserSessionEntity item)
@@ -33,10 +39,13 @@ namespace TaxiApp
             return await Database.InsertAsync(item);
         }
 
-        public async Task<int> DeleteItemAsync(UserSessionEntity item)
+        public async Task<int> DeleteAllItemsAsync()
         {
             await Init();
-            return await Database.DeleteAsync(item);
+            if (await Database.Table<UserSessionEntity>().CountAsync() > 0)
+            return await Database.DeleteAllAsync<UserSessionEntity>();
+            else 
+                return 0;
         }
     }
 }

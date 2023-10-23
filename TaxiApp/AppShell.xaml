@@ -4,20 +4,25 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:TaxiApp.Pages"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Flyout"
+    Shell.FlyoutWidth="250">
+    
+    <MenuItem Text="Обо мне" x:Name="SessionUser" Clicked="SessionUser_Clicked"/>
 
-    <TabBar>
-        <Tab 
-            Title="Авторизация">
-            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <Tab Title="Заказы">
+            <ShellContent Title="Текущий заказ"
+                          ContentTemplate="{DataTemplate local:CurrentOrderPage}" />
+            <ShellContent Title="Новый заказ"
+                          ContentTemplate="{DataTemplate local:OrderPage}" />
         </Tab>
-        <Tab 
-            Title="Регистрация">
-            <ShellContent ContentTemplate="{DataTemplate local:RegPage}" />
-        </Tab>
-        <Tab
-            Title="Новый заказ">
-            <ShellContent ContentTemplate="{DataTemplate local:OrderPage}" />
-        </Tab>
-    </TabBar>
+        <ShellContent Title="История"
+                      ContentTemplate="{DataTemplate local:OrderHistoryPage}" />
+        <ShellContent Title="Рейтинг"
+                      ContentTemplate="{DataTemplate local:UserRatingPage}" />
+        <ShellContent Title="Настройки"
+                      ContentTemplate="{DataTemplate local:SettingPage}" />
+    </FlyoutItem>
+
+    <MenuItem Text="Выйти из учётной записи" x:Name="SessionExit" Clicked="SessionExit_Clicked"/>
 </Shell>

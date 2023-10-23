@@ -9,7 +9,7 @@ namespace TaxiApp.Const
 
     public static class SQLiteDBConnectin
     {
-        public const string DatabaseFilename = "UserSessionInfo.db3";
+        private const string DatabaseFilename = "UserSessionInfo.db3";
 
         public const SQLite.SQLiteOpenFlags Flags =
         // open the database in read/write mode

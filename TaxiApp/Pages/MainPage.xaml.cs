@@ -66,6 +66,7 @@ namespace TaxiApp.Pages
         public MainPage()
         {
             InitializeComponent();
+            UserAuth();
             PhoneEntry.TextChanged += (s, e) =>
             {
                 if (e.NewTextValue.Length >= PhoneEntry.Mask.Length)
@@ -78,7 +79,20 @@ namespace TaxiApp.Pages
                 }
             };
         }
-        private bool is_validPhoneNumber()
+
+        private async void UserAuth()
+        {
+            UserSessionInfoItemDatabase db = new();
+            List<UserSessionEntity> entity = new();
+            await Task.Run(async () =>
+            {
+                entity = await db.GetItemsAsync();
+            });
+            if (entity.Count == 1)
+                await Navigation.PopModalAsync();
+        }
+
+        private bool is_validPhoneNumber() 
         {
             if (_phoneEntry.Length < 18)
             {
@@ -109,7 +123,6 @@ namespace TaxiApp.Pages
                 {
                     if (_code == CodeEntry.Text)
                     {
-                        await Navigation.PushAsync(new OrderPage());
                         auth = true;
                         UserSessionEntity sessionEntity = new()
                         {
@@ -120,14 +133,14 @@ namespace TaxiApp.Pages
                             Role = user.Role,
                             Rating = user.Rating
                         };
+                        await db.DeleteAllItemsAsync();
                         await db.SaveItemAsync(sessionEntity);
+                        await Navigation.PopModalAsync();
                         break;
                     }
                     else
                         await DisplayAlert("Ошибка ввода", "Неверный код!", "OK");
-                    break;
                 }
-                break;
             }
             if (auth == false)
                 await DisplayAlert("Ошибка ввода", "Пользователя с таким номером не существует!", "OK");
